@@ -7,7 +7,7 @@ services:
     env_file:
       - ../api_yamdb/.env
   web:
-    build: ../api_yamdb
+    image: rafael191/api_yamdb_final:v0.0
     restart: always
     volumes:
       - static_value:/app/static/
