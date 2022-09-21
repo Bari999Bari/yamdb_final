@@ -68,7 +68,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
-          key: p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs
+          key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
           script: |
             sudo docker-compose stop
