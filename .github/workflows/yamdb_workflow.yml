@@ -71,7 +71,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
           script: |
-            pwd
             sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
@@ -84,6 +83,7 @@ jobs:
             echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
             echo DEBUG=${{ secrets.DEBUG }} >> .env
             echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env
+            cd admin
             sudo docker-compose up -d
   send_message:
     runs-on: ubuntu-latest
