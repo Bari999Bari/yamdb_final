@@ -68,7 +68,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
+          key: p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs
           passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
           script: |
             sudo docker-compose stop
@@ -81,8 +81,8 @@ jobs:
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             echo SECRET_KEY=p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs >> .env
-            echo DEBUG=False >> .env
-            echo ALLOWED_HOSTS=* >> .env
+            echo DEBUG=${{ secrets.DEBUG }} >> .env
+            echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env
             sudo docker-compose up -d
   send_message:
     runs-on: ubuntu-latest
